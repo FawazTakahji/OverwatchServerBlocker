@@ -1,0 +1,214 @@
+﻿<UserControl x:Class="OverwatchServerBlocker.UI.Views.ServersView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:OverwatchServerBlocker.UI.Converters"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:designTime="clr-namespace:OverwatchServerBlocker.UI.DesignTime"
+             xmlns:echoes="clr-namespace:Echoes;assembly=Echoes.Avalonia"
+             xmlns:enums="clr-namespace:OverwatchServerBlocker.Core.Enums;assembly=OverwatchServerBlocker.Core"
+             xmlns:iconPacks="https://github.com/MahApps/IconPacks.Avalonia"
+             xmlns:localization="clr-namespace:OverwatchServerBlocker.Core.Localization;assembly=OverwatchServerBlocker.Core"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:regions="clr-namespace:OverwatchServerBlocker.Core.Regions;assembly=OverwatchServerBlocker.Core"
+             xmlns:vm="clr-namespace:OverwatchServerBlocker.Core.ViewModels;assembly=OverwatchServerBlocker.Core"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:ServersViewModel"
+             mc:Ignorable="d">
+    <Design.DataContext>
+        <designTime:Locator Type="{x:Type vm:ServersViewModel}" />
+    </Design.DataContext>
+
+    <Grid Margin="{StaticResource PageMargin}"
+          RowDefinitions="Auto, *, Auto">
+        <Grid.Styles>
+            <Style Selector="iconPacks|PackIconFontAwesome.ButtonIcon">
+                <Setter Property="Width" Value="16" />
+                <Setter Property="Height" Value="16" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+        </Grid.Styles>
+
+        <Grid Grid.Row="0"
+              ColumnDefinitions="*, Auto"
+              IsEnabled="{Binding !IsLoadingRegions}">
+            <TextBox Grid.Column="0"
+                     Margin="0,0,20,0"
+                     Classes="Clearable"
+                     InnerRightContent="{iconPacks:FontAwesome Kind=MagnifyingGlassSolid,
+                                                               Width=12,
+                                                               Height=12}"
+                     Text="{Binding FilterText, Mode=TwoWay}"
+                     Watermark="{echoes:Translate {x:Static localization:Servers.filter_by}}">
+                <TextBox.InnerLeftContent>
+                    <TextBlock Margin="12,4,0,4"
+                               Opacity="0.5">
+                        <Run Text="{Binding SelectedRegions.Count, Mode=OneWay}" />
+                        <Run Text="/" />
+                        <Run Text="{Binding Regions.Count, Mode=OneWay}" />
+                    </TextBlock>
+                </TextBox.InnerLeftContent>
+                <TextBox.KeyBindings>
+                    <KeyBinding Command="{Binding SetFilterTextCommand}"
+                                CommandParameter=""
+                                Gesture="Escape" />
+                </TextBox.KeyBindings>
+            </TextBox>
+
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                <Menu>
+                    <MenuItem Classes="Outline NoPressedAnimation">
+                        <MenuItem.Header>
+                            <StackPanel Orientation="Horizontal"
+                                        Spacing="8">
+                                <TextBlock Text="{echoes:Translate {x:Static localization:Servers.Services}}" />
+                                <iconPacks:PackIconFontAwesome Width="12"
+                                                               Height="8"
+                                                               Margin="0,5,0,0"
+                                                               VerticalAlignment="Center"
+                                                               Kind="AngleDownSolid" />
+                            </StackPanel>
+                        </MenuItem.Header>
+                        <MenuItem Command="{Binding ToggleProviderCommand}"
+                                  CommandParameter="{x:Static enums:Service.Amazon}"
+                                  Header="{echoes:Translate {x:Static localization:Services.amazon}}"
+                                  StaysOpenOnClick="True">
+                            <MenuItem.Icon>
+                                <iconPacks:PackIconFontAwesome Width="12"
+                                                               Height="12"
+                                                               VerticalAlignment="Top"
+                                                               IsVisible="{Binding SelectedProviders, Converter={x:Static converters:BooleanConverters.IsProviderEnabled}, ConverterParameter={x:Static enums:Service.Amazon}}"
+                                                               Kind="CheckSolid" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+
+                        <MenuItem Command="{Binding ToggleProviderCommand}"
+                                  CommandParameter="{x:Static enums:Service.Blizzard}"
+                                  Header="{echoes:Translate {x:Static localization:Services.blizzard}}"
+                                  StaysOpenOnClick="True">
+                            <MenuItem.Icon>
+                                <iconPacks:PackIconFontAwesome Width="12"
+                                                               Height="12"
+                                                               VerticalAlignment="Top"
+                                                               IsVisible="{Binding SelectedProviders, Converter={x:Static converters:BooleanConverters.IsProviderEnabled}, ConverterParameter={x:Static enums:Service.Blizzard}}"
+                                                               Kind="CheckSolid" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+
+                        <MenuItem Command="{Binding ToggleProviderCommand}"
+                                  CommandParameter="{x:Static enums:Service.Google}"
+                                  Header="{echoes:Translate {x:Static localization:Services.google}}"
+                                  StaysOpenOnClick="True">
+                            <MenuItem.Icon>
+                                <iconPacks:PackIconFontAwesome Width="12"
+                                                               Height="12"
+                                                               VerticalAlignment="Top"
+                                                               IsVisible="{Binding SelectedProviders, Converter={x:Static converters:BooleanConverters.IsProviderEnabled}, ConverterParameter={x:Static enums:Service.Google}}"
+                                                               Kind="CheckSolid" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                </Menu>
+
+                <Button Classes="Outline"
+                        Command="{Binding RefreshCommand}"
+                        ToolTip.Tip="{echoes:Translate {x:Static localization:Misc.refresh}}">
+                    <iconPacks:PackIconFontAwesome Width="12"
+                                                   Height="12"
+                                                   Kind="RotateRightSolid" />
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <iconPacks:PackIconFontAwesome Grid.Row="1"
+                                       Width="64"
+                                       Height="64"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       IsVisible="{Binding IsLoadingRegions}"
+                                       Kind="SpinnerSolid"
+                                       Spin="{Binding IsLoadingRegions}"
+                                       SpinDuration="2" />
+
+        <DataGrid x:Name="ServersGrid"
+                  Grid.Row="1"
+                  Margin="0,8"
+                  CanUserSortColumns="False"
+                  IsReadOnly="True"
+                  IsVisible="{Binding !IsLoadingRegions}"
+                  SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:DataType="regions:IRegion"
+                                      IsChecked="{Binding IsSelected, Mode=OneWay}"
+                                      IsHitTestVisible="False"
+                                      IsTabStop="False" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+
+                    <DataGridTemplateColumn.Header>
+                        <CheckBox Command="{Binding ToggleAllCommand}"
+                                  IsChecked="{Binding IsAllSelected, Mode=OneWay}"
+                                  IsThreeState="True" />
+                    </DataGridTemplateColumn.Header>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn x:DataType="regions:IRegion"
+                                    Binding="{Binding Zone}"
+                                    Header="{echoes:Translate {x:Static localization:Servers.zone}}" />
+
+                <DataGridTextColumn x:DataType="regions:IRegion"
+                                    Binding="{Binding ServiceString}"
+                                    Header="{echoes:Translate {x:Static localization:Servers.service}}" />
+
+                <DataGridTextColumn x:DataType="regions:IRegion"
+                                    Binding="{Binding Identifier}"
+                                    Header="{echoes:Translate {x:Static localization:Servers.identifier}}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Right"
+                    IsEnabled="{Binding !IsLoadingRegions}"
+                    Orientation="Horizontal"
+                    Spacing="8">
+            <Button Classes="Destructive"
+                    Command="{Binding RemoveRuleCommand}"
+                    IsEnabled="{Binding !IsModifyingRule}">
+                <StackPanel Orientation="Horizontal"
+                            Spacing="8">
+                    <iconPacks:PackIconFontAwesome Classes="ButtonIcon"
+                                                   IsVisible="{Binding !IsModifyingRule}"
+                                                   Kind="TrashSolid" />
+                    <iconPacks:PackIconFontAwesome Classes="ButtonIcon"
+                                                   IsVisible="{Binding IsModifyingRule}"
+                                                   Kind="SpinnerSolid"
+                                                   Spin="{Binding IsModifyingRule}"
+                                                   SpinDuration="3" />
+                    <TextBlock Text="{echoes:Translate {x:Static localization:Servers.remove_rule}}" />
+                </StackPanel>
+
+            </Button>
+            <Button Classes="Primary"
+                    Command="{Binding ApplyRuleCommand}"
+                    IsEnabled="{Binding !IsModifyingRule}">
+                <StackPanel Orientation="Horizontal"
+                            Spacing="8">
+                    <iconPacks:PackIconFontAwesome Classes="ButtonIcon"
+                                                   IsVisible="{Binding !IsModifyingRule}"
+                                                   Kind="FileShieldSolid" />
+                    <iconPacks:PackIconFontAwesome Classes="ButtonIcon"
+                                                   IsVisible="{Binding IsModifyingRule}"
+                                                   Kind="SpinnerSolid"
+                                                   Spin="{Binding IsModifyingRule}"
+                                                   SpinDuration="3" />
+                    <TextBlock Text="{echoes:Translate {x:Static localization:Misc.apply}}" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

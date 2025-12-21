@@ -1,0 +1,31 @@
+﻿[echoes_config]
+generated_class_name = "Settings"
+generated_namespace = "OverwatchServerBlocker.Core.Localization"
+
+[translations]
+
+theme = "Theme"
+system = "System"
+light = "Light"
+dark = "Dark"
+
+language = "Language"
+
+game_executable_path = "Game Executable Path"
+browse = "Browse"
+example = "Example"
+
+check_startup = "Check for updates on startup"
+
+reset = "Reset"
+restore = "Restore"
+
+coming_soon = "Coming soon!"
+
+select_game_executable = "Select the game executable"
+executable = "Executable"
+selection_cancelled = "Selection Cancelled"
+selection_error = "An error occured while selecting the game executable"
+
+save_error = "An error occured while saving the settings to the filesystem"
+load_error = "An error occured while loading the settings from the filesystem"

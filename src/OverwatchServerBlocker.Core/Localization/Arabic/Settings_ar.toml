@@ -1,0 +1,25 @@
+﻿theme = "السمة"
+system = "نظام"
+light = "فاتح"
+dark = "داكن"
+
+language = "اللغة"
+
+game_executable_path = "مسار ملف اللعبة"
+browse = "تصفح"
+example = "مثال"
+
+check_startup = "التحقق من وجود تحديثات عند التشغيل"
+
+reset = "إعادة تعيين"
+restore = "استعادة"
+
+coming_soon = "قريبا!"
+
+select_game_executable = "اختر ملف اللعبة"
+executable = "ملف اللعبة"
+selection_cancelled = "تم إلغاء الاختيار"
+selection_error = "حدث خطأ أثناء اختيار ملف اللعبة"
+
+save_error = "حدث خطأ أثناء حفظ الإعدادات إلى الملف"
+load_error = "حدث خطأ أثناء قراءة الإعدادات من الملف"

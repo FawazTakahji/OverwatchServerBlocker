@@ -1,0 +1,30 @@
+﻿elevated_privileges = "يتطلب هذا التطبيق صلاحيات عالية للتشغيل"
+
+window_title = "حاظر سيرفرات اوفرواتش"
+github_repository = "مشروع جيت هب"
+check_update = "تحقق من وجود تحديث"
+
+nav_expand = "توسيع"
+nav_servers = "السيرفرات"
+nav_settings = "الإعدادات"
+
+error_app_version = "تعذر الحصول على إصدار التطبيق الحالي."
+error_parse_version = "تعذر تحليل إصدار التطبيق الحالي."
+error_check_update = "حدث خطأ أثناء التحقق من وجود تحديث."
+error_open_url = "حدث خطأ أثناء فتح الرابط."
+
+no_updates = "لا توجد تحديثات متوفرة"
+update_available = "تحديث متوفر!"
+whats_new = "ما الجديد في"
+update = "تحديث"
+
+close = "إغلاق"
+exit = "خروج"
+
+ok = "حسنا"
+yes = "نعم"
+no = "لا"
+cancel = "إلغاء"
+
+refresh = "تحديث"
+apply = "تطبيق"

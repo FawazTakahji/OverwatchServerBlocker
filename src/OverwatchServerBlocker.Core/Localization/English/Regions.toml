@@ -1,0 +1,99 @@
+﻿[echoes_config]
+generated_class_name = "Regions"
+generated_namespace = "OverwatchServerBlocker.Core.Localization"
+
+[translations]
+africa = "Africa"
+asia = "Asia"
+australia = "Australia"
+europe = "Europe"
+middle_east = "Middle East"
+north_america = "North America"
+south_america = "South America"
+unknown = "Unknown"
+
+are_dubai = "United Arab Emirates, Dubai"
+
+aus_melbourne = "Australia, Melbourne"
+aus_sydney = "Australia, Sydney"
+
+bel_ghislain = "Belgium, St. Ghislain"
+bhr_manama = "Bahrain, Manama"
+bra_saopaulo = "Brazil, Sao Paulo"
+
+can_calgary = "Canada, Calgary"
+can_montreal = "Canada, Montreal"
+can_toronto = "Canada, Toronto"
+
+che_zurich = "Switzerland, Zurich"
+chl_santiago = "Chile, Santiago"
+
+chn_beijing = "China, Beijing"
+chn_ningxia = "China, Ningxia"
+
+edu_berlin = "Germany, Berlin"
+edu_frankfurt = "Germany, Frankfurt"
+edu_heringsdorf = "Germany, Heringsdorf"
+
+esp_madrid = "Spain, Madrid"
+fin_hamina = "Finland, Hamina"
+fra_paris = "France, Paris"
+gbr_london = "United Kingdom, London"
+hkg = "Hong Kong"
+idn_jakarta = "Indonesia, Jakarta"
+
+ind_delhi = "India, Delhi"
+ind_hyderabad = "India, Hyderabad"
+ind_mumbai = "India, Mumbai"
+
+irl_dublin = "Ireland, Dublin"
+isr_telaviv = "Israel, Tel Aviv"
+
+ita_milan = "Italy, Milan"
+ita_turin = "Italy, Turin"
+
+jpn_osaka = "Japan, Osaka"
+jpn_tokyo = "Japan, Tokyo"
+
+kor_incheon = "South Korea, Incheon"
+kor_seoul = "South Korea, Seoul"
+
+mex_mexicocity = "Mexico, Mexico City"
+mex_queretaro = "Mexico, Queretaro"
+
+mys_kuala_lumpur = "Malaysia, Kuala Lumpur"
+
+nld_amsterdam = "Netherlands, Amsterdam"
+nld_eemshaven = "Netherlands, Eemshaven"
+
+nzl_auckland = "New Zealand, Auckland"
+pol_warsaw = "Poland, Warsaw"
+qat_doha = "Qatar, Doha"
+sau_dammam = "Saudi Arabia, Dammam"
+
+sgp = "Singapore"
+sgp_jurong = "Singapore, Jurong West"
+
+swe_stockholm = "Sweden, Stockholm"
+tha_bangkok = "Thailand, Bangkok"
+
+twn_changhua = "Taiwan, Changhua County"
+twn_taipei = "Taiwan, Taipei"
+
+usa_alabama = "United States, Alabama"
+usa_arizona = "United States, Arizona"
+usa_california = "United States, California"
+usa_illinois = "United States, Illinois"
+usa_iowa = "United States, Iowa"
+usa_nevada = "United States, Nevada"
+usa_ohio = "United States, Ohio"
+usa_oklahoma = "United States, Oklahoma"
+usa_oregon = "United States, Oregon"
+usa_southcarolina = "United States, South Carolina"
+usa_texas = "United States, Texas"
+usa_utah = "United States, Utah"
+usa_virginia = "United States, Virginia"
+usa_washington = "United States, Washington"
+
+zaf_capetown = "South Africa, Cape Town"
+zaf_johannesburg = "South Africa, Johannesburg"

@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverwatchServerBlocker.UI", "OverwatchServerBlocker.UI\OverwatchServerBlocker.UI.csproj", "{53AA68B6-DD36-46BE-A7E3-1DC152431D4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverwatchServerBlocker.Windows", "OverwatchServerBlocker.Windows\OverwatchServerBlocker.Windows.csproj", "{B276800B-00CE-401D-B382-86C02C7CDEA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverwatchServerBlocker.Core", "OverwatchServerBlocker.Core\OverwatchServerBlocker.Core.csproj", "{315F6B19-A411-4E4B-ACB0-3671DC84BE6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platforms", "Platforms", "{03585288-5DE8-4081-B4A0-6153CFE2736A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53AA68B6-DD36-46BE-A7E3-1DC152431D4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53AA68B6-DD36-46BE-A7E3-1DC152431D4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53AA68B6-DD36-46BE-A7E3-1DC152431D4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53AA68B6-DD36-46BE-A7E3-1DC152431D4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B276800B-00CE-401D-B382-86C02C7CDEA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B276800B-00CE-401D-B382-86C02C7CDEA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B276800B-00CE-401D-B382-86C02C7CDEA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B276800B-00CE-401D-B382-86C02C7CDEA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{315F6B19-A411-4E4B-ACB0-3671DC84BE6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{315F6B19-A411-4E4B-ACB0-3671DC84BE6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{315F6B19-A411-4E4B-ACB0-3671DC84BE6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{315F6B19-A411-4E4B-ACB0-3671DC84BE6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B276800B-00CE-401D-B382-86C02C7CDEA6} = {03585288-5DE8-4081-B4A0-6153CFE2736A}
+	EndGlobalSection
+EndGlobal

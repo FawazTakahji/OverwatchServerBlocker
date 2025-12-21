@@ -1,0 +1,36 @@
+﻿[echoes_config]
+generated_class_name = "Misc"
+generated_namespace = "OverwatchServerBlocker.Core.Localization"
+
+[translations]
+
+elevated_privileges = "This program requires elevated privileges to run"
+
+window_title = "Overwatch Server Blocker"
+github_repository = "Github Repository"
+check_update = "Check Update"
+
+nav_expand = "Expand"
+nav_servers = "Servers"
+nav_settings = "Settings"
+
+error_app_version = "Couldn't get the current app version."
+error_parse_version = "Couldn't parse the release version."
+error_check_update = "An error occurred while checking for updates."
+error_open_url = "An error occurred while opening the url."
+
+no_updates = "No Updates Available"
+update_available = "Update Available!"
+whats_new = "What's new in"
+update = "Update"
+
+close = "Close"
+exit = "Exit"
+
+ok = "Ok"
+yes = "Yes"
+no = "No"
+cancel = "Cancel"
+
+refresh = "Refresh"
+apply = "Apply"

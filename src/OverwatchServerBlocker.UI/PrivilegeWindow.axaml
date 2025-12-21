@@ -1,0 +1,34 @@
+﻿<shadui:Window x:Class="OverwatchServerBlocker.UI.PrivilegeWindow"
+               xmlns="https://github.com/avaloniaui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:echoes="clr-namespace:Echoes;assembly=Echoes.Avalonia"
+               xmlns:localization="clr-namespace:OverwatchServerBlocker.Core.Localization;assembly=OverwatchServerBlocker.Core"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
+               Title="{echoes:Translate {x:Static localization:Misc.window_title}}"
+               CanMaximize="False"
+               CanMinimize="False"
+               CanResize="False"
+               Icon="/Assets/logo-gray.ico"
+               ShowBottomBorder="False"
+               SizeToContent="WidthAndHeight"
+               TitleBarAnimationEnabled="False"
+               TitleFontWeight="SemiBold"
+               WindowStartupLocation="CenterScreen"
+               mc:Ignorable="d">
+    <shadui:Window.LogoContent>
+        <Image Margin="8,8,0,8"
+               Source="/Assets/logo-transparent.png" />
+    </shadui:Window.LogoContent>
+
+    <Border Padding="16">
+        <StackPanel Spacing="8">
+            <TextBlock Classes="Lead"
+                       Text="{echoes:Translate {x:Static localization:Misc.elevated_privileges}}" />
+            <Button Classes="Ghost"
+                    Click="ExitButtonClicked"
+                    Content="{echoes:Translate {x:Static localization:Misc.exit}}" />
+        </StackPanel>
+    </Border>
+</shadui:Window>

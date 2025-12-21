@@ -1,0 +1,9 @@
+﻿[echoes_config]
+generated_class_name = "Services"
+generated_namespace = "OverwatchServerBlocker.Core.Localization"
+
+[translations]
+
+google = "Google"
+amazon = "Amazon"
+blizzard = "Blizzard"

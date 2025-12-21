@@ -1,0 +1,28 @@
+﻿[echoes_config]
+generated_class_name = "Servers"
+generated_namespace = "OverwatchServerBlocker.Core.Localization"
+
+[translations]
+zone = "Zone"
+service = "Service"
+identifier = "Identifier"
+filter_by = "Filter by zone or identifier"
+
+Services = "Services"
+
+remove_rule = "Remove Rule"
+
+load_google_error = "An error occurred while loading Google regions"
+load_amazon_error = "An error occurred while loading Amazon regions"
+
+save_error = "An error occurred while saving the selected regions to the filesystem"
+
+rule_applied = "Rule applied successfully"
+relaunch_game = "If the game is already running you have to restart it"
+rule_removed = "Rule removed successfully"
+
+executable_not_found = "Couldn't find the game executable"
+select_correct_location = "Make sure you've selected the correct location"
+no_regions_selected = "No regions selected"
+apply_rule_error = "An error occurred while applying the rule"
+remove_rule_error = "An error occurred while removing the rule"

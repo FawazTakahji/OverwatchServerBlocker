@@ -1,0 +1,94 @@
+﻿africa = "إفريقيا"
+asia = "آسيا"
+australia = "أستراليا"
+europe = "أوروبا"
+middle_east = "الشرق الأوسط"
+north_america = "أمريكا الشمالية"
+south_america = "أمريكا الجنوبية"
+unknown = "غير معروف"
+
+are_dubai = "الإمارات العربية المتحدة, دبي"
+
+aus_melbourne = "أستراليا, ميلبورن"
+aus_sydney = "أستراليا, سيدني"
+
+bel_ghislain = "بلجيكا, سانت جسلان"
+bhr_manama = "البحرين, المنامة"
+bra_saopaulo = "البرازيل, ساو باولو"
+
+can_calgary = "كندا, كالغاري"
+can_montreal = "كندا, مونتريال"
+can_toronto = "كندا, تورنتو"
+
+che_zurich = "سويسرا, زيوريخ"
+chl_santiago = "تشيلي, سانتياغو"
+
+chn_beijing = "الصين, بكين"
+chn_ningxia = "الصين, نينغ غوانجيو"
+
+edu_berlin = "ألمانيا, برلين"
+edu_frankfurt = "ألمانيا, فرانكفورت"
+edu_heringsdorf = "ألمانيا, هيرينجسدورف"
+
+esp_madrid = "اسبانيا, مدريد"
+fin_hamina = "فنلندا, هامينا"
+fra_paris = "فرنسا, باريس"
+gbr_london = "إنجلترا, لندن"
+hkg = "هونغ كونغ"
+idn_jakarta = "إندونيسيا, جاكارتا"
+
+ind_delhi = "الهند, دلهي"
+ind_hyderabad = "الهند, حيدر اباد"
+ind_mumbai = "الهند, مومباي"
+
+irl_dublin = "أيرلندا, دبلن"
+isr_telaviv = "إسرائيل, تل أبيب"
+
+ita_milan = "إيطاليا, ميلان"
+ita_turin = "إيطاليا, تورين"
+
+jpn_osaka = "اليابان, اوساكا"
+jpn_tokyo = "اليابان, طوكيو"
+
+kor_incheon = "كوريا الجنوبية, إنتشون"
+kor_seoul = "كوريا الجنوبية, سول"
+
+mex_mexicocity = "المكسيك,  مدينة مكسيكو"
+mex_queretaro = "المكسيك, كيريتارو"
+
+mys_kuala_lumpur = "ماليزيا, كوالالمبور"
+
+nld_amsterdam = "هولندا, أمستردام"
+nld_eemshaven = "هولندا, إيمشافين"
+
+nzl_auckland = "نيوزيلندا, أوكلاند"
+pol_warsaw = "بولندا, وارسو"
+qat_doha = "قطر, الدوحة"
+sau_dammam = "السعودية, الدمام"
+
+sgp = "سنغافورة"
+sgp_jurong = "سنغافورة، جورونغ الغربية"
+
+swe_stockholm = "السويد, ستوكهولم"
+tha_bangkok = "تايلاند, بانكوك"
+
+twn_changhua = "تايوان, مقاطعة تشانغوا"
+twn_taipei = "تايوان, تايبيه"
+
+usa_alabama = "الولايات المتحدة, ألاباما"
+usa_arizona = "الولايات المتحدة, أريزونا"
+usa_california = "الولايات المتحدة, كاليفورنيا"
+usa_illinois = "الولايات المتحدة, إلينوي"
+usa_iowa = "الولايات المتحدة, ايوا"
+usa_nevada = "الولايات المتحدة, نيفادا"
+usa_ohio = "الولايات المتحدة, أوهايو"
+usa_oklahoma = "الولايات المتحدة, أوكلاهوما"
+usa_oregon = "الولايات المتحدة, أوريغن"
+usa_southcarolina = "الولايات المتحدة, كارولاينا الجنوبية"
+usa_texas = "الولايات المتحدة, تكساس"
+usa_utah = "الولايات المتحدة, يوتا"
+usa_virginia = "الولايات المتحدة, فرجينيا"
+usa_washington = "الولايات المتحدة, واشنطن"
+
+zaf_capetown = "جنوب إفريقيا, كيب تاون"
+zaf_johannesburg = "جنوب إفريقيا, جوهانسبرغ"
