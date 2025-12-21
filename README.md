@@ -17,6 +17,9 @@
 5. Click Apply
 6. Launch Overwatch 2, you can close the application and the firewall rule will persist
 
+## Safety
+This application does not modify any game files, and does not inject any code into the game process. It simply modifies the firewall rules to block the servers from being accessed.
+
 ## Todo
 - [ ] Create Linux version
 - [ ] Create web app version
