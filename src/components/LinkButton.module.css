@@ -1,0 +1,50 @@
+﻿.downloadButton {
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-background);
+    border: 2px solid var(--primary-color);
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.2s ease-in-out;
+    min-width: 240px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+        transform: translateY(-5px);
+        background-color: var(--primary-color);
+        color: #fff;
+
+        svg {
+            color: #fff;
+        }
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    svg {
+        margin-right: 15px;
+        color: var(--primary-color);
+    }
+
+    .buttonText {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+
+        span {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        strong {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    }
+}

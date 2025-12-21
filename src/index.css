@@ -1,0 +1,15 @@
+:root {
+  --background-color: #121212;
+  --secondary-background: #1e1e1e;
+  --text-color: #e0e0e0;
+  --primary-color: #f99e1a;
+  scrollbar-color: var(--primary-color) transparent;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
