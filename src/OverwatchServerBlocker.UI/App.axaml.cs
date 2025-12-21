@@ -39,7 +39,7 @@ public partial class App : Application
             BindingPlugins.DataValidators.RemoveAt(0);
 
 #if RELEASE
-            if (!Environment.IsPrivilegedProcess)
+            if (!System.Environment.IsPrivilegedProcess)
             {
                 try
                 {
