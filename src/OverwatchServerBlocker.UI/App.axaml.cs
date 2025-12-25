@@ -38,19 +38,6 @@ public partial class App : Application
         {
             BindingPlugins.DataValidators.RemoveAt(0);
 
-#if RELEASE
-            if (!System.Environment.IsPrivilegedProcess)
-            {
-                try
-                {
-                    TranslationProvider.SetCulture(CultureInfo.InstalledUICulture);
-                }
-                catch {}
-                desktop.MainWindow = new PrivilegeWindow();
-                return;
-            }
-#endif
-
             Logs.TryDeleteLogs();
             desktop.MainWindow = new MainWindow
             {
