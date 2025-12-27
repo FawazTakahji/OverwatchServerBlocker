@@ -20,7 +20,7 @@ public class StoragePicker : IStoragePicker
         {
             throw new Exception("Missing desktop lifetime reference");
         }
-        if (desktop.MainWindow is not MainWindow mainWindow)
+        if (desktop.MainWindow is not { } mainWindow)
         {
             throw new Exception("Missing top-level reference");
         }

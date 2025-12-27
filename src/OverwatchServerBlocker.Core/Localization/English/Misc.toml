@@ -7,6 +7,7 @@ generated_namespace = "OverwatchServerBlocker.Core.Localization"
 elevated_privileges = "This program requires elevated privileges to run"
 
 window_title = "Overwatch Server Blocker"
+github = "Github"
 github_repository = "Github Repository"
 check_update = "Check Update"
 

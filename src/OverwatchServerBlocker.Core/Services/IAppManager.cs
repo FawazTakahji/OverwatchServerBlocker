@@ -4,11 +4,11 @@ namespace OverwatchServerBlocker.Core.Services;
 
 public interface IAppManager
 {
-    public event EventHandler MainWindowLoaded;
+    public event EventHandler MainViewLoaded;
 
-    public void InvokeMainWindowLoaded(object? sender);
+    public void InvokeMainViewLoaded(object? sender);
 
-    public bool IsMainWindowLoaded { get; }
+    public bool IsMainViewLoaded { get; }
 
     public void SetTheme(Theme theme);
 }

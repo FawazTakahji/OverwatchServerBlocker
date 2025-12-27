@@ -1,5 +1,6 @@
 ﻿using System;
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Styling;
 using OverwatchServerBlocker.Core.Models;
@@ -9,14 +10,14 @@ namespace OverwatchServerBlocker.UI.Services;
 
 public class AppManager : IAppManager
 {
-    public event EventHandler? MainWindowLoaded;
+    public event EventHandler? MainViewLoaded;
 
-    public void InvokeMainWindowLoaded(object? sender)
+    public void InvokeMainViewLoaded(object? sender)
     {
-        MainWindowLoaded?.Invoke(sender, EventArgs.Empty);
+        MainViewLoaded?.Invoke(sender, EventArgs.Empty);
     }
 
-    public bool IsMainWindowLoaded => Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime { MainWindow.IsLoaded: true };
+    public bool IsMainViewLoaded => CheckView();
 
     public void SetTheme(Theme theme)
     {
@@ -33,5 +34,19 @@ public class AppManager : IAppManager
             Theme.Dark => ThemeVariant.Dark,
             _ => ThemeVariant.Default
         };
+    }
+
+    public bool CheckView()
+    {
+        if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        {
+            return desktop.MainWindow?.Content is Control { IsLoaded: true };
+        }
+        if (Application.Current?.ApplicationLifetime is ISingleViewApplicationLifetime singleView)
+        {
+            return singleView.MainView is { IsLoaded: true };
+        }
+
+        return false;
     }
 }

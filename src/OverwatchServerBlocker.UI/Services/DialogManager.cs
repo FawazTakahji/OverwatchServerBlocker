@@ -21,10 +21,10 @@ public class DialogManager : IDialogManager
         Manager = manager;
         _appManager = appManager;
 
-        _appManager.MainWindowLoaded += OnMainWindowLoaded;
+        _appManager.MainViewLoaded += OnMainViewLoaded;
     }
 
-    private void OnMainWindowLoaded(object? sender, EventArgs e)
+    private void OnMainViewLoaded(object? sender, EventArgs e)
     {
         foreach (SimpleDialogBuilder dialog in _dialogs)
         {
@@ -57,7 +57,7 @@ public class DialogManager : IDialogManager
                 break;
         }
 
-        if (_appManager.IsMainWindowLoaded)
+        if (_appManager.IsMainViewLoaded)
         {
             builder.Show();
         }
@@ -85,7 +85,7 @@ public class DialogManager : IDialogManager
             builder.WithCancelButton(tertiaryButton.Label, tertiaryButton.Action ?? (() => {}));
         }
 
-        if (_appManager.IsMainWindowLoaded)
+        if (_appManager.IsMainViewLoaded)
         {
             builder.Show();
         }
@@ -120,7 +120,7 @@ public class DialogManager : IDialogManager
                 break;
         }
 
-        if (_appManager.IsMainWindowLoaded)
+        if (_appManager.IsMainViewLoaded)
         {
             builder.Show();
         }
@@ -164,7 +164,7 @@ public class DialogManager : IDialogManager
             });
         }
 
-        if (_appManager.IsMainWindowLoaded)
+        if (_appManager.IsMainViewLoaded)
         {
             builder.Show();
         }

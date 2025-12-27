@@ -9,6 +9,7 @@ namespace OverwatchServerBlocker.Core.ViewModels;
 public partial class MainViewModel : ViewModelBase
 {
     private readonly ILogger<MainViewModel> _logger;
+    public IAppManager AppManager { get; }
     public IDialogManager DialogManager { get; }
     public IToastManager ToastManager { get; }
     public Navigation Navigation { get; }
@@ -16,12 +17,14 @@ public partial class MainViewModel : ViewModelBase
 
     public MainViewModel(
         ILogger<MainViewModel> logger,
+        IAppManager appManager,
         IDialogManager dialogManager,
         IToastManager toastManager,
         Navigation navigation,
         UpdateChecker updateChecker)
     {
         _logger = logger;
+        AppManager = appManager;
         DialogManager = dialogManager;
         ToastManager = toastManager;
         Navigation = navigation;
