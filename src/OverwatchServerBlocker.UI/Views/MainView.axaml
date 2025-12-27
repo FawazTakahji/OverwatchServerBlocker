@@ -1,0 +1,152 @@
+﻿<UserControl x:Class="OverwatchServerBlocker.UI.Views.MainView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:OverwatchServerBlocker.UI.Converters"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:designTime="clr-namespace:OverwatchServerBlocker.UI.DesignTime;assembly=OverwatchServerBlocker.UI"
+             xmlns:echoes="clr-namespace:Echoes;assembly=Echoes.Avalonia"
+             xmlns:iconPacks="https://github.com/MahApps/IconPacks.Avalonia"
+             xmlns:localization="clr-namespace:OverwatchServerBlocker.Core.Localization;assembly=OverwatchServerBlocker.Core"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:services="clr-namespace:OverwatchServerBlocker.Core.Services;assembly=OverwatchServerBlocker.Core"
+             xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
+             xmlns:ui="clr-namespace:OverwatchServerBlocker.UI"
+             xmlns:vm="clr-namespace:OverwatchServerBlocker.Core.ViewModels;assembly=OverwatchServerBlocker.Core"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:DataType="vm:MainViewModel"
+             Background="{DynamicResource WindowBackgroundColor}"
+             mc:Ignorable="d">
+    <Design.DataContext>
+        <designTime:Locator Type="{x:Type vm:MainViewModel}" />
+    </Design.DataContext>
+
+    <UserControl.DataTemplates>
+        <ui:ViewLocator />
+    </UserControl.DataTemplates>
+
+    <UserControl.Styles>
+        <Style Selector="PathIcon#CheckSelected">
+            <Setter Property="FlowDirection" Value="LeftToRight" />
+        </Style>
+        <Style Selector="PathIcon#PartIcon">
+            <Setter Property="FlowDirection" Value="LeftToRight" />
+        </Style>
+    </UserControl.Styles>
+
+    <Panel>
+        <Grid ColumnDefinitions="Auto, *">
+            <shadui:Sidebar Grid.Column="0"
+                            Width="220"
+                            MinWidth="60"
+                            Padding="{Binding #Toggler.IsChecked, Converter={x:Static converters:BooleanConverters.SidebarPadding}}"
+                            BorderBrush="{DynamicResource BorderColor30}"
+                            BorderThickness="0,0,1,0"
+                            CurrentRoute="{Binding Navigation.CurrentPage.Route}"
+                            Expanded="{Binding #Toggler.IsChecked}">
+                <shadui:Sidebar.Header>
+                    <ToggleButton Name="Toggler"
+                                  Height="32"
+                                  Padding="8"
+                                  HorizontalAlignment="{Binding #Toggler.IsChecked, Converter={x:Static converters:BooleanConverters.SidebarTogglerHorizontalAlignment}}"
+                                  CornerRadius="{DynamicResource LgCornerRadius}"
+                                  Theme="{DynamicResource SideTogglerTheme}"
+                                  ToolTip.ServiceEnabled="{Binding !$parent[shadui:Sidebar].Expanded}"
+                                  ToolTip.Tip="{echoes:Translate {x:Static localization:Misc.nav_expand}}">
+                        <iconPacks:PackIconFontAwesome Width="16"
+                                                       Height="16"
+                                                       HorizontalAlignment="Center"
+                                                       Kind="BarsStaggeredSolid" />
+                    </ToggleButton>
+                </shadui:Sidebar.Header>
+
+                <shadui:Sidebar.ExpandEasing>
+                    <shadui:EaseInOutBack BounceIntensity="Strong" />
+                </shadui:Sidebar.ExpandEasing>
+
+                <StackPanel Spacing="4">
+                    <shadui:SidebarItemLabel AsSeparator="True" />
+                    <shadui:SidebarItem Command="{Binding Navigation.NavigateCommand}"
+                                        CommandParameter="{x:Static services:Pages.Servers}"
+                                        Content="{echoes:Translate {x:Static localization:Misc.nav_servers}}"
+                                        Route="Servers"
+                                        ToolTip.ServiceEnabled="{Binding !$parent[shadui:Sidebar].Expanded}"
+                                        ToolTip.Tip="{echoes:Translate {x:Static localization:Misc.nav_servers}}">
+                        <shadui:SidebarItem.Icon>
+                            <iconPacks:PackIconFontAwesome Width="16"
+                                                           Height="16"
+                                                           VerticalAlignment="Center"
+                                                           Kind="ServerSolid" />
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem Command="{Binding Navigation.NavigateCommand}"
+                                        CommandParameter="{x:Static services:Pages.Settings}"
+                                        Content="{echoes:Translate {x:Static localization:Misc.nav_settings}}"
+                                        Route="Settings"
+                                        ToolTip.ServiceEnabled="{Binding !$parent[shadui:Sidebar].Expanded}"
+                                        ToolTip.Tip="{echoes:Translate {x:Static localization:Misc.nav_settings}}">
+                        <shadui:SidebarItem.Icon>
+                            <iconPacks:PackIconFontAwesome Width="16"
+                                                           Height="16"
+                                                           VerticalAlignment="Center"
+                                                           Kind="GearsSolid" />
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                </StackPanel>
+
+                <shadui:Sidebar.Footer>
+                    <StackPanel Spacing="4">
+                        <StackPanel.Styles>
+                            <Style Selector="shadui|SidebarItem:checked /template/ Border#SelectedBackground">
+                                <Setter Property="Opacity" Value="0" />
+                            </Style>
+                        </StackPanel.Styles>
+
+                        <shadui:SidebarItem Command="{Binding OpenRepositoryCommand}"
+                                            Content="{echoes:Translate {x:Static localization:Misc.github}}"
+                                            GroupName="Footer"
+                                            ToolTip.Tip="{echoes:Translate {x:Static localization:Misc.github_repository}}">
+                            <shadui:SidebarItem.Icon>
+                                <iconPacks:PackIconFontAwesome Width="16"
+                                                               Height="16"
+                                                               VerticalAlignment="Center"
+                                                               Kind="GithubBrands" />
+                            </shadui:SidebarItem.Icon>
+                        </shadui:SidebarItem>
+
+                        <shadui:SidebarItem Command="{Binding UpdateChecker.CheckForUpdatesCommand}"
+                                            Content="{echoes:Translate {x:Static localization:Misc.update}}"
+                                            GroupName="Footer"
+                                            ToolTip.Tip="{echoes:Translate {x:Static localization:Misc.check_update}}">
+                            <shadui:SidebarItem.Icon>
+                                <iconPacks:PackIconFontAwesome Width="16"
+                                                               Height="16"
+                                                               VerticalAlignment="Center"
+                                                               ClipToBounds="False"
+                                                               Kind="RotateSolid"
+                                                               Spin="{Binding UpdateChecker.IsCheckingUpdate}"
+                                                               SpinDuration="3" />
+                            </shadui:SidebarItem.Icon>
+                        </shadui:SidebarItem>
+
+                        <shadui:SidebarItemLabel AsSeparator="True" />
+
+                        <TextBlock x:Name="VersionLabel"
+                                   HorizontalAlignment="Center"
+                                   Classes="Muted"
+                                   FontWeight="Bold" />
+                    </StackPanel>
+                </shadui:Sidebar.Footer>
+            </shadui:Sidebar>
+            <ContentControl Grid.Column="1"
+                            Content="{Binding Navigation.CurrentPage}" />
+        </Grid>
+
+        <shadui:PopupMask>
+            <shadui:PopupMask.Hosts>
+                <shadui:DialogHost x:Name="DialogHost" />
+                <shadui:ToastHost x:Name="ToastHost" />
+            </shadui:PopupMask.Hosts>
+        </shadui:PopupMask>
+    </Panel>
+</UserControl>

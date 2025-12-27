@@ -1,6 +1,7 @@
 ﻿elevated_privileges = "يتطلب هذا التطبيق صلاحيات عالية للتشغيل"
 
 window_title = "حاظر سيرفرات اوفرواتش"
+github = "جيت هب"
 github_repository = "مشروع جيت هب"
 check_update = "تحقق من وجود تحديث"
 

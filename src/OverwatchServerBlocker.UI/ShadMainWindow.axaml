@@ -1,0 +1,38 @@
+<shadui:Window x:Class="OverwatchServerBlocker.UI.ShadMainWindow"
+               xmlns="https://github.com/avaloniaui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:designTime="clr-namespace:OverwatchServerBlocker.UI.DesignTime;assembly=OverwatchServerBlocker.UI"
+               xmlns:echoes="clr-namespace:Echoes;assembly=Echoes.Avalonia"
+               xmlns:localization="clr-namespace:OverwatchServerBlocker.Core.Localization;assembly=OverwatchServerBlocker.Core"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
+               xmlns:ui="clr-namespace:OverwatchServerBlocker.UI"
+               xmlns:views="clr-namespace:OverwatchServerBlocker.UI.Views"
+               xmlns:vm="clr-namespace:OverwatchServerBlocker.Core.ViewModels;assembly=OverwatchServerBlocker.Core"
+               Title="{echoes:Translate {x:Static localization:Misc.window_title}}"
+               MinWidth="790"
+               MinHeight="340"
+               d:DesignHeight="450"
+               d:DesignWidth="800"
+               x:DataType="vm:MainViewModel"
+               Icon="/Assets/logo-gray.ico"
+               SaveWindowState="True"
+               ShowBottomBorder="False"
+               TitleFontWeight="SemiBold"
+               mc:Ignorable="d">
+    <Design.DataContext>
+        <designTime:Locator Type="{x:Type vm:MainViewModel}" />
+    </Design.DataContext>
+
+    <shadui:Window.DataTemplates>
+        <ui:ViewLocator />
+    </shadui:Window.DataTemplates>
+
+    <shadui:Window.LogoContent>
+        <Image Margin="18,8,8,8"
+               Source="/Assets/logo-transparent.png" />
+    </shadui:Window.LogoContent>
+
+    <views:MainView DataContext="{Binding}" />
+</shadui:Window>

@@ -1,140 +1,29 @@
-<shadui:Window x:Class="OverwatchServerBlocker.UI.MainWindow"
-               xmlns="https://github.com/avaloniaui"
-               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-               xmlns:converters="clr-namespace:OverwatchServerBlocker.UI.Converters"
-               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-               xmlns:designTime="clr-namespace:OverwatchServerBlocker.UI.DesignTime;assembly=OverwatchServerBlocker.UI"
-               xmlns:echoes="clr-namespace:Echoes;assembly=Echoes.Avalonia"
-               xmlns:iconPacks="https://github.com/MahApps/IconPacks.Avalonia"
-               xmlns:localization="clr-namespace:OverwatchServerBlocker.Core.Localization;assembly=OverwatchServerBlocker.Core"
-               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-               xmlns:services="clr-namespace:OverwatchServerBlocker.Core.Services;assembly=OverwatchServerBlocker.Core"
-               xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
-               xmlns:ui="clr-namespace:OverwatchServerBlocker.UI"
-               xmlns:vm="clr-namespace:OverwatchServerBlocker.Core.ViewModels;assembly=OverwatchServerBlocker.Core"
-               Title="{echoes:Translate {x:Static localization:Misc.window_title}}"
-               MinWidth="790"
-               MinHeight="300"
-               d:DesignHeight="450"
-               d:DesignWidth="800"
-               x:DataType="vm:MainViewModel"
-               Icon="/Assets/logo-gray.ico"
-               SaveWindowState="True"
-               ShowBottomBorder="False"
-               TitleFontWeight="SemiBold"
-               mc:Ignorable="d">
+﻿<Window x:Class="OverwatchServerBlocker.UI.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:designTime="clr-namespace:OverwatchServerBlocker.UI.DesignTime;assembly=OverwatchServerBlocker.UI"
+        xmlns:echoes="clr-namespace:Echoes;assembly=Echoes.Avalonia"
+        xmlns:localization="clr-namespace:OverwatchServerBlocker.Core.Localization;assembly=OverwatchServerBlocker.Core"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="clr-namespace:OverwatchServerBlocker.UI"
+        xmlns:views="clr-namespace:OverwatchServerBlocker.UI.Views"
+        xmlns:vm="clr-namespace:OverwatchServerBlocker.Core.ViewModels;assembly=OverwatchServerBlocker.Core"
+        Title="{echoes:Translate {x:Static localization:Misc.window_title}}"
+        MinWidth="790"
+        MinHeight="330"
+        d:DesignHeight="450"
+        d:DesignWidth="800"
+        x:DataType="vm:MainViewModel"
+        Icon="/Assets/logo-gray.ico"
+        mc:Ignorable="d">
     <Design.DataContext>
         <designTime:Locator Type="{x:Type vm:MainViewModel}" />
     </Design.DataContext>
 
-    <shadui:Window.DataTemplates>
+    <Window.DataTemplates>
         <ui:ViewLocator />
-    </shadui:Window.DataTemplates>
+    </Window.DataTemplates>
 
-    <shadui:Window.Hosts>
-        <shadui:DialogHost x:Name="DialogHost"
-                           Owner="{Binding $parent[Window]}" />
-        <shadui:ToastHost x:Name="ToastHost" />
-    </shadui:Window.Hosts>
-
-    <shadui:Window.LogoContent>
-        <Image Margin="18,8,8,8"
-               Source="/Assets/logo-transparent.png" />
-    </shadui:Window.LogoContent>
-
-    <shadui:Window.Styles>
-        <Style Selector="PathIcon#CheckSelected">
-            <Setter Property="FlowDirection" Value="LeftToRight" />
-        </Style>
-        <Style Selector="PathIcon#PartIcon">
-            <Setter Property="FlowDirection" Value="LeftToRight" />
-        </Style>
-    </shadui:Window.Styles>
-
-    <shadui:Window.RightWindowTitleBarContent>
-        <StackPanel Orientation="Horizontal"
-                    Spacing="8">
-            <Button Width="30"
-                    Height="30"
-                    Command="{Binding OpenRepositoryCommand}"
-                    Content="{iconPacks:FontAwesome GithubBrands,
-                                                    Width=16,
-                                                    Height=16}"
-                    ToolTip.Tip="{echoes:Translate {x:Static localization:Misc.github_repository}}" />
-            <Button Width="30"
-                    Height="30"
-                    Command="{Binding UpdateChecker.CheckForUpdatesCommand}"
-                    ToolTip.Tip="{echoes:Translate {x:Static localization:Misc.check_update}}">
-                <iconPacks:PackIconFontAwesome Width="16"
-                                               Height="16"
-                                               ClipToBounds="False"
-                                               Kind="RotateSolid"
-                                               Spin="{Binding UpdateChecker.IsCheckingUpdate}"
-                                               SpinDuration="3" />
-            </Button>
-        </StackPanel>
-    </shadui:Window.RightWindowTitleBarContent>
-
-    <Grid ColumnDefinitions="Auto, *">
-        <shadui:Sidebar Grid.Column="0"
-                        Width="220"
-                        MinWidth="60"
-                        Padding="{Binding #Toggler.IsChecked, Converter={x:Static converters:BooleanConverters.SidebarPadding}}"
-                        BorderBrush="{DynamicResource BorderColor30}"
-                        BorderThickness="0,0,1,0"
-                        CurrentRoute="{Binding Navigation.CurrentPage.Route}"
-                        Expanded="{Binding #Toggler.IsChecked}">
-            <shadui:Sidebar.Header>
-                <ToggleButton Name="Toggler"
-                              Height="32"
-                              Padding="8"
-                              HorizontalAlignment="{Binding #Toggler.IsChecked, Converter={x:Static converters:BooleanConverters.SidebarTogglerHorizontalAlignment}}"
-                              CornerRadius="{DynamicResource LgCornerRadius}"
-                              Theme="{DynamicResource SideTogglerTheme}"
-                              ToolTip.ServiceEnabled="{Binding !$parent[shadui:Sidebar].Expanded}"
-                              ToolTip.Tip="{echoes:Translate {x:Static localization:Misc.nav_expand}}">
-                    <iconPacks:PackIconFontAwesome Width="16"
-                                                   Height="16"
-                                                   HorizontalAlignment="Center"
-                                                   Kind="BarsStaggeredSolid" />
-                </ToggleButton>
-            </shadui:Sidebar.Header>
-
-            <shadui:Sidebar.ExpandEasing>
-                <shadui:EaseInOutBack BounceIntensity="Strong" />
-            </shadui:Sidebar.ExpandEasing>
-
-            <StackPanel Spacing="4">
-                <shadui:SidebarItemLabel AsSeparator="True" />
-                <shadui:SidebarItem Command="{Binding Navigation.NavigateCommand}"
-                                    CommandParameter="{x:Static services:Pages.Servers}"
-                                    Content="{echoes:Translate {x:Static localization:Misc.nav_servers}}"
-                                    Route="Servers"
-                                    ToolTip.ServiceEnabled="{Binding !$parent[shadui:Sidebar].Expanded}"
-                                    ToolTip.Tip="{echoes:Translate {x:Static localization:Misc.nav_servers}}">
-                    <shadui:SidebarItem.Icon>
-                        <iconPacks:PackIconFontAwesome Width="16"
-                                                       Height="16"
-                                                       VerticalAlignment="Center"
-                                                       Kind="ServerSolid" />
-                    </shadui:SidebarItem.Icon>
-                </shadui:SidebarItem>
-                <shadui:SidebarItem Command="{Binding Navigation.NavigateCommand}"
-                                    CommandParameter="{x:Static services:Pages.Settings}"
-                                    Content="{echoes:Translate {x:Static localization:Misc.nav_settings}}"
-                                    Route="Settings"
-                                    ToolTip.ServiceEnabled="{Binding !$parent[shadui:Sidebar].Expanded}"
-                                    ToolTip.Tip="{echoes:Translate {x:Static localization:Misc.nav_settings}}">
-                    <shadui:SidebarItem.Icon>
-                        <iconPacks:PackIconFontAwesome Width="16"
-                                                       Height="16"
-                                                       VerticalAlignment="Center"
-                                                       Kind="GearsSolid" />
-                    </shadui:SidebarItem.Icon>
-                </shadui:SidebarItem>
-            </StackPanel>
-        </shadui:Sidebar>
-        <ContentControl Grid.Column="1"
-                        Content="{Binding Navigation.CurrentPage}" />
-    </Grid>
-</shadui:Window>
+    <views:MainView DataContext="{Binding}" />
+</Window>

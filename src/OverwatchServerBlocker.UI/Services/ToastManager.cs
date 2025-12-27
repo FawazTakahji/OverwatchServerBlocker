@@ -20,10 +20,10 @@ public class ToastManager : IToastManager
         Manager = manager;
         _appManager = appManager;
 
-        _appManager.MainWindowLoaded += OnMainWindowLoaded;
+        _appManager.MainViewLoaded += OnMainViewLoaded;
     }
 
-    private void OnMainWindowLoaded(object? sender, EventArgs e)
+    private void OnMainViewLoaded(object? sender, EventArgs e)
     {
         foreach ((ToastBuilder builder, ToastStyle style) toast in _toasts)
         {
@@ -45,7 +45,7 @@ public class ToastManager : IToastManager
             builder.WithAction(action.Label, action.Action);
         }
 
-        if (_appManager.IsMainWindowLoaded)
+        if (_appManager.IsMainViewLoaded)
         {
             Show(builder, style);
         }
