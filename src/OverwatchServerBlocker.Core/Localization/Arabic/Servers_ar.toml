@@ -5,7 +5,14 @@ filter_by = "بحث حسب المنطقة أو المعرف"
 
 Services = "الخدمات"
 
+manual_setup = "إعداد يدوي"
 remove_rule = "إزالة القاعدة"
+
+manual_setup_description_1 = "أنشئ قاعدة حظر صادرة لنطاقات العناوين هذه باستخدام بروتوكول (UDP) والمنافذ المحددة."
+manual_setup_description_2 = "إذا كان جدار الحماية يدعم ذلك، فقم بتطبيق القاعدة على أوفرواتش فقط."
+
+copy_ip_ranges = "نسخ نطاقات العناوين"
+copy_ports = "نسخ المنافذ"
 
 load_google_error = "حدث خطأ اثناء استرداد المناطق من جوجل"
 load_amazon_error = "حدث خطأ اثناء استرداد المناطق من أمازون"
@@ -21,3 +28,9 @@ select_correct_location = "تأكد من تحديد موقع الملف الصح
 no_regions_selected = "لم يتم تحديد أي منطقة"
 apply_rule_error = "حدث خطأ أثناء تطبيق القاعدة"
 remove_rule_error = "حدث خطأ أثناء إزالة القاعدة"
+
+copy_ranges_error = "حدث خطأ أثناء نسخ نطاقات العناوين"
+copy_ports_error = "حدث خطأ أثناء نسخ المنافذ"
+
+copied_ranges = "تم نسخ نطاقات العناوين"
+copied_ports = "تم نسخ المنافذ"

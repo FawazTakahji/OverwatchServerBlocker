@@ -171,44 +171,59 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Grid.Row="2"
-                    HorizontalAlignment="Right"
-                    IsEnabled="{Binding !IsLoadingRegions}"
-                    Orientation="Horizontal"
-                    Spacing="8">
-            <Button Classes="Destructive"
-                    Command="{Binding RemoveRuleCommand}"
-                    IsEnabled="{Binding !IsModifyingRule}">
+        <Grid Grid.Row="2"
+              ColumnDefinitions="Auto, *">
+            <Button Grid.Column="0"
+                    Classes="Primary"
+                    Command="{Binding ShowManualSetupCommand}">
                 <StackPanel Orientation="Horizontal"
                             Spacing="8">
                     <iconPacks:PackIconFontAwesome Classes="ButtonIcon"
-                                                   IsVisible="{Binding !IsModifyingRule}"
-                                                   Kind="TrashSolid" />
-                    <iconPacks:PackIconFontAwesome Classes="ButtonIcon"
-                                                   IsVisible="{Binding IsModifyingRule}"
-                                                   Kind="SpinnerSolid"
-                                                   Spin="{Binding IsModifyingRule}"
-                                                   SpinDuration="3" />
-                    <TextBlock Text="{echoes:Translate {x:Static localization:Servers.remove_rule}}" />
+                                                   Kind="CopySolid" />
+                    <TextBlock Text="{echoes:Translate {x:Static localization:Servers.manual_setup}}" />
                 </StackPanel>
 
             </Button>
-            <Button Classes="Primary"
-                    Command="{Binding ApplyRuleCommand}"
-                    IsEnabled="{Binding !IsModifyingRule}">
-                <StackPanel Orientation="Horizontal"
-                            Spacing="8">
-                    <iconPacks:PackIconFontAwesome Classes="ButtonIcon"
-                                                   IsVisible="{Binding !IsModifyingRule}"
-                                                   Kind="FileShieldSolid" />
-                    <iconPacks:PackIconFontAwesome Classes="ButtonIcon"
-                                                   IsVisible="{Binding IsModifyingRule}"
-                                                   Kind="SpinnerSolid"
-                                                   Spin="{Binding IsModifyingRule}"
-                                                   SpinDuration="3" />
-                    <TextBlock Text="{echoes:Translate {x:Static localization:Misc.apply}}" />
-                </StackPanel>
-            </Button>
-        </StackPanel>
+
+            <StackPanel Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        IsEnabled="{Binding !IsLoadingRegions}"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                <Button Classes="Destructive"
+                        Command="{Binding RemoveRuleCommand}"
+                        IsEnabled="{Binding !IsModifyingRule}">
+                    <StackPanel Orientation="Horizontal"
+                                Spacing="8">
+                        <iconPacks:PackIconFontAwesome Classes="ButtonIcon"
+                                                       IsVisible="{Binding !IsModifyingRule}"
+                                                       Kind="TrashSolid" />
+                        <iconPacks:PackIconFontAwesome Classes="ButtonIcon"
+                                                       IsVisible="{Binding IsModifyingRule}"
+                                                       Kind="SpinnerSolid"
+                                                       Spin="{Binding IsModifyingRule}"
+                                                       SpinDuration="3" />
+                        <TextBlock Text="{echoes:Translate {x:Static localization:Servers.remove_rule}}" />
+                    </StackPanel>
+
+                </Button>
+                <Button Classes="Primary"
+                        Command="{Binding ApplyRuleCommand}"
+                        IsEnabled="{Binding !IsModifyingRule}">
+                    <StackPanel Orientation="Horizontal"
+                                Spacing="8">
+                        <iconPacks:PackIconFontAwesome Classes="ButtonIcon"
+                                                       IsVisible="{Binding !IsModifyingRule}"
+                                                       Kind="FileShieldSolid" />
+                        <iconPacks:PackIconFontAwesome Classes="ButtonIcon"
+                                                       IsVisible="{Binding IsModifyingRule}"
+                                                       Kind="SpinnerSolid"
+                                                       Spin="{Binding IsModifyingRule}"
+                                                       SpinDuration="3" />
+                        <TextBlock Text="{echoes:Translate {x:Static localization:Misc.apply}}" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

@@ -16,5 +16,6 @@ public static class IServiceCollectionExtensions
         collection.AddSingleton<IToastManager, ToastManager>();
         collection.AddSingleton<IAppManager, AppManager>();
         collection.AddSingleton<IStoragePicker, StoragePicker>();
+        collection.AddSingleton<IClipboard, Clipboard>();
     }
 }

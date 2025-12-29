@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using OverwatchServerBlocker.Core.Enums;
 using OverwatchServerBlocker.Core.Models;
 using OverwatchServerBlocker.Core.Services;
+using OverwatchServerBlocker.UI.Dialogs.ViewModels;
+using OverwatchServerBlocker.UI.Dialogs.Views;
 using ShadUI;
 using ShadUIDialogManager = ShadUI.DialogManager;
 
@@ -20,6 +22,8 @@ public class DialogManager : IDialogManager
     {
         Manager = manager;
         _appManager = appManager;
+
+        manager.Register<GuideView, GuideViewModel>();
 
         _appManager.MainViewLoaded += OnMainViewLoaded;
     }
@@ -174,5 +178,12 @@ public class DialogManager : IDialogManager
         }
 
         return await tcs.Task;
+    }
+
+    public void ShowGuide(Func<Task> copyIpRange, Func<Task> copyPort)
+    {
+        Manager.CreateDialog(new GuideViewModel(copyIpRange, copyPort))
+            .Dismissible()
+            .Show();
     }
 }

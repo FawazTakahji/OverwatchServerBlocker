@@ -22,4 +22,6 @@ public interface IDialogManager
         DialogCustomButton primaryButton,
         DialogCustomButton? secondaryButton = null,
         DialogCustomButton? tertiaryButton = null);
+
+    public void ShowGuide(Func<Task> copyIpRange, Func<Task> copyPort);
 }
