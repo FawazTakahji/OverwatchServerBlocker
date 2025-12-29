@@ -1,6 +1,7 @@
 import styles from './App.module.css'
 import { githubIcon, linuxIcon, windowsIcon } from "./svg.ts";
 import windowsRelease from "../public/updates/windows.json";
+import linuxRelease from "../public/updates/linux.json";
 import { LinkButton } from "./components/LinkButton.tsx";
 import { ImageCarousel } from "./components/ImageCarousel.tsx";
 
@@ -37,12 +38,10 @@ function App() {
                                     path={windowsIcon}
                                     href={windowsRelease.directDownload} />
 
-                        <div className={styles.unclickable}>
-                            <LinkButton topText={"Coming Soon"}
-                                        bottomText={"Linux"}
-                                        path={linuxIcon}
-                                        href={"/"} />
-                        </div>
+                        <LinkButton topText={"Download for"}
+                                    bottomText={"Linux"}
+                                    path={linuxIcon}
+                                    href={linuxRelease.directDownload} />
 
                         <LinkButton topText={"Source Code"}
                                     bottomText={"Github"}

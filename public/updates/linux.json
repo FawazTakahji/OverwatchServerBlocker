@@ -5,5 +5,5 @@
     "ar": "تعديل واجهة المستخدم لدعم منصات متعددة\nتحسين مشغل الروابط\nإضافة دليل إعداد يدوي"
   },
   "release": "https://github.com/FawazTakahji/OverwatchServerBlocker/releases/tag/1.2.0",
-  "directDownload": "https://github.com/FawazTakahji/OverwatchServerBlocker/releases/download/1.2.0/OverwatchServerBlocker-1.2.0-win-x64.zip"
+  "directDownload": "https://github.com/FawazTakahji/OverwatchServerBlocker/releases/download/1.2.0/OverwatchServerBlocker-1.2.0-linux-x64.tar.gz"
 }
