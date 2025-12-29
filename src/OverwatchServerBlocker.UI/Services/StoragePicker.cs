@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Avalonia;
-using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Platform.Storage;
 using OverwatchServerBlocker.Core.Services;
 using FilePickerOpenOptions = OverwatchServerBlocker.Core.Services.FilePickerOpenOptions;
@@ -16,20 +14,16 @@ public class StoragePicker : IStoragePicker
 {
     public async Task<IReadOnlyList<string>> OpenFilePickerAsync(FilePickerOpenOptions options)
     {
-        if (Application.Current?.ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop)
+        if (App.TopLevel?.StorageProvider is not {} storageProvider)
         {
-            throw new Exception("Missing desktop lifetime reference");
-        }
-        if (desktop.MainWindow is not { } mainWindow)
-        {
-            throw new Exception("Missing top-level reference");
+            throw new Exception("Failed to get the storage provider service.");
         }
 
         AvaFilePickerOpenOptions avaOptions = new()
         {
             Title = options.Title,
             AllowMultiple = options.AllowMultiple,
-            SuggestedStartLocation = options.SuggestedStartLocation is null ? null : await mainWindow.StorageProvider.TryGetFolderFromPathAsync(options.SuggestedStartLocation),
+            SuggestedStartLocation = options.SuggestedStartLocation is null ? null : await storageProvider.TryGetFolderFromPathAsync(options.SuggestedStartLocation),
             FileTypeFilter = options.FileTypeFilter is { } filter
                 ? filter.Select(f => new FilePickerFileType(f.Name)
                 {
@@ -38,7 +32,7 @@ public class StoragePicker : IStoragePicker
                 : null
         };
 
-        IReadOnlyList<IStorageFile> files = await mainWindow.StorageProvider.OpenFilePickerAsync(avaOptions);
+        IReadOnlyList<IStorageFile> files = await storageProvider.OpenFilePickerAsync(avaOptions);
         return files.Select(f => f.Path.LocalPath).ToArray();
     }
 }

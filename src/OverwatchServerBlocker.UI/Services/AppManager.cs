@@ -36,7 +36,7 @@ public class AppManager : IAppManager
         };
     }
 
-    public bool CheckView()
+    private static bool CheckView()
     {
         if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {

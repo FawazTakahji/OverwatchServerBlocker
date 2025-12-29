@@ -21,6 +21,8 @@ namespace OverwatchServerBlocker.UI;
 
 public partial class App : Application
 {
+    public static TopLevel? TopLevel { get; private set; } = null;
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -77,6 +79,7 @@ public partial class App : Application
             DataContext = Singletons.ServiceProvider?.GetRequiredService<MainViewModel>()
         };
 #endif
+        TopLevel = lifetime.MainWindow;
     }
 
     private void ManagerOnCultureChanged(object? sender, string e)
@@ -84,13 +87,6 @@ public partial class App : Application
         CultureInfo info = CultureInfo.GetCultureInfo(e);
         TranslationProvider.SetCulture(info);
 
-        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime { MainWindow: not null } desktop)
-        {
-            desktop.MainWindow.FlowDirection = info.TextInfo.IsRightToLeft ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
-        }
-        else if (ApplicationLifetime is ISingleViewApplicationLifetime { MainView: not null } singleView)
-        {
-            singleView.MainView.FlowDirection = info.TextInfo.IsRightToLeft ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
-        }
+        TopLevel?.FlowDirection = info.TextInfo.IsRightToLeft ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
     }
 }
