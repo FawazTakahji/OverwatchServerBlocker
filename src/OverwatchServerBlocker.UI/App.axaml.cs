@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Linq;
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
@@ -13,8 +14,6 @@ using OverwatchServerBlocker.Core.ViewModels;
 
 #if RELEASE
 using OverwatchServerBlocker.Core.Utilities;
-#else
-using Avalonia.Controls;
 #endif
 
 namespace OverwatchServerBlocker.UI;
