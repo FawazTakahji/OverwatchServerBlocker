@@ -9,8 +9,8 @@
     <ItemGroup>
       <PackageReference Include="AsyncAwaitBestPractices" Version="10.0.0" />
       <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
-      <PackageReference Include="Echoes" Version="0.3.0" />
-      <PackageReference Include="Echoes.Generator" Version="0.3.0" />
+      <PackageReference Include="Echoes" Version="0.4.1" />
+      <PackageReference Include="Echoes.Generator" Version="0.4.1" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.1" />
       <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.1" />
       <PackageReference Include="ZLogger" Version="2.5.10" />
