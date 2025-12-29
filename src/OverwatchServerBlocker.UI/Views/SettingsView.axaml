@@ -91,7 +91,8 @@
                     </controls:HeaderContainer>
 
                     <controls:HeaderContainer HorizontalContentAlignment="Stretch"
-                                              Header="{echoes:Translate {x:Static localization:Settings.game_executable_path}}">
+                                              Header="{echoes:Translate {x:Static localization:Settings.game_executable_path}}"
+                                              IsVisible="{Binding IsSplitTunnelSupported, Mode=OneTime}">
                         <TextBox x:Name="GamePathTextBox"
                                  Margin="0,0,16,0"
                                  Text="{Binding GamePath}"
