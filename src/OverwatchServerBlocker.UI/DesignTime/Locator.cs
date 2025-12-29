@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Avalonia.Markup.Xaml;
 using Microsoft.Extensions.DependencyInjection;
 using OverwatchServerBlocker.Core.Extensions;
 using OverwatchServerBlocker.Core.Services;
-using OverwatchServerBlocker.UI.DesignTime.Services;
+using OverwatchServerBlocker.Core.Stubs;
+using OverwatchServerBlocker.UI.Dialogs.ViewModels;
 using OverwatchServerBlocker.UI.Extensions;
 
 namespace OverwatchServerBlocker.UI.DesignTime;
@@ -29,7 +31,8 @@ public class Locator : MarkupExtension
         collection.AddCoreServices();
         collection.AddUIServices();
 
-        collection.AddSingleton<IFirewallManager, DesignTimeFirewallManager>();
+        collection.AddSingleton<IFirewallManager, FirewallManagerStub>();
+        collection.AddSingleton(new GuideViewModel(() => Task.CompletedTask, () => Task.CompletedTask));
 
         _provider = collection.BuildServiceProvider();
     }

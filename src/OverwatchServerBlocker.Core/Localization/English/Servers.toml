@@ -10,7 +10,14 @@ filter_by = "Filter by zone or identifier"
 
 Services = "Services"
 
+manual_setup = "Manual Setup"
 remove_rule = "Remove Rule"
+
+manual_setup_description_1 = "Create an outbound block rule for these IP ranges using the UDP protocol and those specific ports."
+manual_setup_description_2 = "If supported, restrict the rule to Overwatch only."
+
+copy_ip_ranges = "Copy IP Ranges"
+copy_ports = "Copy Ports"
 
 load_google_error = "An error occurred while loading Google regions"
 load_amazon_error = "An error occurred while loading Amazon regions"
@@ -26,3 +33,9 @@ select_correct_location = "Make sure you've selected the correct location"
 no_regions_selected = "No regions selected"
 apply_rule_error = "An error occurred while applying the rule"
 remove_rule_error = "An error occurred while removing the rule"
+
+copy_ranges_error = "An error occurred while copying the ip ranges"
+copy_ports_error = "An error occurred while copying the ports"
+
+copied_ranges = "Copied IP ranges"
+copied_ports = "Copied ports"

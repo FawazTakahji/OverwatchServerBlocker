@@ -23,6 +23,7 @@ public partial class ServersViewModel : ViewModelBase, INavigable
     public string Route => "Servers";
     private readonly ILogger<ServersViewModel> _logger;
     private readonly SettingsManager _settingsManager;
+    private readonly IClipboard _clipboard;
     private readonly IDialogManager _dialogManager;
     private readonly IToastManager _toastManager;
     private readonly IHttpClientFactory _httpClientFactory;
@@ -54,6 +55,7 @@ public partial class ServersViewModel : ViewModelBase, INavigable
 
     public ServersViewModel(
         ILogger<ServersViewModel> logger,
+        IClipboard clipboard,
         SettingsManager settingsManager,
         IDialogManager dialogManager,
         IToastManager toastManager,
@@ -61,6 +63,7 @@ public partial class ServersViewModel : ViewModelBase, INavigable
         IFirewallManager firewallManager)
     {
         _logger = logger;
+        _clipboard = clipboard;
         _settingsManager = settingsManager;
         _dialogManager = dialogManager;
         _toastManager = toastManager;
@@ -113,6 +116,18 @@ public partial class ServersViewModel : ViewModelBase, INavigable
         {
             IsLoadingRegions = false;
         }
+    }
+
+    [RelayCommand]
+    private void ShowManualSetup()
+    {
+        if (!Regions.Any(x => x.IsSelected))
+        {
+            _toastManager.Show(Localization.Servers.no_regions_selected.CurrentValue, style: ToastStyle.Warning);
+            return;
+        }
+
+        _dialogManager.ShowGuide(CopyRanges, CopyPorts);
     }
 
     [RelayCommand]
@@ -210,6 +225,41 @@ public partial class ServersViewModel : ViewModelBase, INavigable
         {
             IsModifyingRule = false;
         }
+    }
+
+    private async Task CopyRanges()
+    {
+        string addresses = string.Join(Environment.NewLine, GetSelectedAddresses());
+
+        try
+        {
+            await _clipboard.SetTextAsync(addresses);
+        }
+        catch (Exception e)
+        {
+            _dialogManager.Show(Localization.Servers.copy_ranges_error.CurrentValue, e.Message);
+            _logger.LogError(e, "{Message}", Localization.Servers.copy_ranges_error.Default());
+            return;
+        }
+
+        _toastManager.Show(Localization.Servers.copied_ranges.CurrentValue, style: ToastStyle.Success);
+    }
+
+    private async Task CopyPorts()
+    {
+        string ports = string.Join(Environment.NewLine, Constants.RulePorts.Split(','));
+        try
+        {
+            await _clipboard.SetTextAsync(ports);
+        }
+        catch (Exception e)
+        {
+            _dialogManager.Show(Localization.Servers.copy_ports_error.CurrentValue, e.Message);
+            _logger.LogError(e, "{Message}", Localization.Servers.copy_ports_error.Default());
+            return;
+        }
+
+        _toastManager.Show(Localization.Servers.copied_ports.CurrentValue, style: ToastStyle.Success);
     }
 
     private HashSet<string> GetSelectedAddresses()
