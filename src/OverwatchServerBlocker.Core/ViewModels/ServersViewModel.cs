@@ -21,6 +21,8 @@ namespace OverwatchServerBlocker.Core.ViewModels;
 public partial class ServersViewModel : ViewModelBase, INavigable
 {
     public string Route => "Servers";
+    public static bool IsFirewallSupported { get; } = Singletons.IsFirewallSupported;
+
     private readonly ILogger<ServersViewModel> _logger;
     private readonly SettingsManager _settingsManager;
     private readonly IClipboard _clipboard;
@@ -128,6 +130,11 @@ public partial class ServersViewModel : ViewModelBase, INavigable
         }
 
         _dialogManager.ShowGuide(CopyRanges, CopyPorts);
+
+        if (IsFirewallSupported)
+        {
+            SaveSelectedRegions();
+        }
     }
 
     [RelayCommand]
@@ -281,7 +288,8 @@ public partial class ServersViewModel : ViewModelBase, INavigable
         return addresses;
     }
 
-    private void SaveSelectedRegions()
+    [RelayCommand]
+    private void SaveSelectedRegions(bool notify = false)
     {
         Dictionary<Service, HashSet<string>> selectedRegions = new();
         selectedRegions.Initialize();
@@ -301,6 +309,10 @@ public partial class ServersViewModel : ViewModelBase, INavigable
         try
         {
             _settingsManager.Save();
+            if (notify)
+            {
+                _toastManager.Show(Localization.Settings.saved.CurrentValue, style: ToastStyle.Success);
+            }
         }
         catch (Exception e)
         {

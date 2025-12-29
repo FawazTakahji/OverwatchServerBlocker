@@ -6,16 +6,16 @@ public class FirewallManagerStub : IFirewallManager
 {
     public IFirewallRule[] GetRules()
     {
-        throw new NotImplementedException("Current OS is not supported");
+        throw new NotImplementedException("Current Platform is not supported");
     }
 
     public IFirewallRule AddRule(IFirewallRule rule)
     {
-        throw new NotImplementedException("Current OS is not supported");
+        throw new NotImplementedException("Current Platform is not supported");
     }
 
     public void RemoveRule(IFirewallRule rule)
     {
-        throw new NotImplementedException("Current OS is not supported");
+        throw new NotImplementedException("Current Platform is not supported");
     }
 }

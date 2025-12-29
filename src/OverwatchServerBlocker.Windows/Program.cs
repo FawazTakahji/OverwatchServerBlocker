@@ -21,6 +21,8 @@ sealed class Program
     // Avalonia configuration, don't remove; also used by visual designer.
     public static AppBuilder BuildAvaloniaApp()
     {
+        Singletons.IsFirewallSupported = true;
+        Singletons.IsSplitTunnelSupported = true;
         Singletons.UpdateOS = "windows.json";
 
         IServiceCollection collection = new ServiceCollection();

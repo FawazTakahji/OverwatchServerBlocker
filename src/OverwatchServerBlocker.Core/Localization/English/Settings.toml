@@ -29,3 +29,5 @@ selection_error = "An error occured while selecting the game executable"
 
 save_error = "An error occured while saving the settings to the filesystem"
 load_error = "An error occured while loading the settings from the filesystem"
+
+saved = "Settings saved successfully"

@@ -7,6 +7,8 @@ namespace OverwatchServerBlocker.Core;
 
 public static class Singletons
 {
+    public static bool IsFirewallSupported = false;
+    public static bool IsSplitTunnelSupported = false;
     public static string UpdateOS = string.Empty;
     public static JsonSerializerOptions JsonSerializerOptions { get; } = new()
     {

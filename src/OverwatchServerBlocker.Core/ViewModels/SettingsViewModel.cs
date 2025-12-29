@@ -11,6 +11,7 @@ namespace OverwatchServerBlocker.Core.ViewModels;
 public partial class SettingsViewModel : ViewModelBase, INavigable
 {
     public string Route => "Settings";
+    public static bool IsSplitTunnelSupported { get; } = Singletons.IsSplitTunnelSupported;
 
     public readonly SettingsManager SettingsManager;
     private readonly IAppManager _appManager;
