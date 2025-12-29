@@ -12,6 +12,7 @@
         Title="{echoes:Translate {x:Static localization:Misc.window_title}}"
         MinWidth="790"
         MinHeight="330"
+        WindowStartupLocation="CenterScreen"
         d:DesignHeight="450"
         d:DesignWidth="800"
         x:DataType="vm:MainViewModel"
