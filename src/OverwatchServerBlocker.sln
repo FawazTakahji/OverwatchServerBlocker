@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platforms", "Platforms", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverwatchServerBlocker.Linux", "OverwatchServerBlocker.Linux\OverwatchServerBlocker.Linux.csproj", "{CB9896E7-C76B-4A8F-9F7A-73978426DDB5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverwatchServerBlocker.Web", "OverwatchServerBlocker.Web\OverwatchServerBlocker.Web.csproj", "{D3745F27-7B4D-4EE0-8423-EC74511652B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,9 +34,14 @@ Global
 		{CB9896E7-C76B-4A8F-9F7A-73978426DDB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB9896E7-C76B-4A8F-9F7A-73978426DDB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB9896E7-C76B-4A8F-9F7A-73978426DDB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3745F27-7B4D-4EE0-8423-EC74511652B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3745F27-7B4D-4EE0-8423-EC74511652B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3745F27-7B4D-4EE0-8423-EC74511652B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3745F27-7B4D-4EE0-8423-EC74511652B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B276800B-00CE-401D-B382-86C02C7CDEA6} = {03585288-5DE8-4081-B4A0-6153CFE2736A}
 		{CB9896E7-C76B-4A8F-9F7A-73978426DDB5} = {03585288-5DE8-4081-B4A0-6153CFE2736A}
+		{D3745F27-7B4D-4EE0-8423-EC74511652B9} = {03585288-5DE8-4081-B4A0-6153CFE2736A}
 	EndGlobalSection
 EndGlobal
