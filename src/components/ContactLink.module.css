@@ -1,0 +1,18 @@
+﻿.container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: var(--primary-color);
+    }
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}

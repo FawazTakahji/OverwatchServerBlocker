@@ -1,9 +1,10 @@
 import styles from './App.module.css'
-import { githubIcon, linuxIcon, windowsIcon } from "./svg.ts";
+import { DiscordIcon, GithubIcon, githubIcon, KofiIcon, linuxIcon, windowsIcon } from "./svg.ts";
 import windowsRelease from "../public/updates/windows.json";
 import linuxRelease from "../public/updates/linux.json";
 import { LinkButton } from "./components/LinkButton.tsx";
 import { ImageCarousel } from "./components/ImageCarousel.tsx";
+import { ContactLink } from "./components/ContactLink.tsx";
 
 function App() {
     return (
@@ -94,6 +95,23 @@ function App() {
                     </p>
                 </section>
             </div>
+
+            <footer className={styles.footer}
+                    id="footer">
+                <div className={styles.footerLinks}>
+                    <ContactLink link="https://github.com/FawazTakahji"
+                                 text="FawazTakahji"
+                                 icon={GithubIcon} />
+
+                    <ContactLink link="https://ko-fi.com/fawaztk"
+                                 text="fawaztk"
+                                 icon={KofiIcon} />
+
+                    <ContactLink link="https://discord.com/users/228825096360296448"
+                                 text="pardofelis."
+                                 icon={DiscordIcon} />
+                </div>
+            </footer>
         </div>
     )
 }
