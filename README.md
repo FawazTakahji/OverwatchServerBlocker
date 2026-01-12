@@ -21,7 +21,7 @@
 This application does not modify any game files, and does not inject any code into the game process. It simply modifies the firewall rules to block the servers from being accessed.
 
 ## Todo
-- [ ] Create Linux version
+- [x] Create Linux version
 - [ ] Create web app version
 - [ ] Add Linux firewall support
 
